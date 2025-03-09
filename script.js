@@ -45,3 +45,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", function (event) {
+            // Ignora a interação se o clique for no botão "Fechar"
+            if (!event.target.classList.contains("close-btn")) {
+                card.classList.toggle("flipped");
+            }
+        });
+    });
+
+    // Fechar o cartão quando clicar no botão de fechar
+    document.querySelectorAll(".close-btn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.stopPropagation(); // Impede que o clique feche o cartão novamente
+            this.closest(".card").classList.remove("flipped");
+        });
+    });
+});
+
