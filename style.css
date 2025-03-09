@@ -206,16 +206,29 @@ hr {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
 }
 
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
 /* Media Queries para dispositivos móveis */
 @media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
     nav ul {
-        flex-direction: column;
-        text-align: center;
-        background-color: rgba(0, 0, 0, 0.9); 
-        position: absolute;
-        top: 60px;
-        width: 100%;
-        display: none; 
+    display: none; /* Ocultar o menu por padrão */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
     }
 
     nav ul li {
@@ -232,9 +245,9 @@ hr {
         cursor: pointer;
     }
 
-    nav ul.show {
-        display: flex;
-    }
+        nav ul.show {
+            display: flex;
+        }
 
     .slideshow-container {
         height: 50vh; 

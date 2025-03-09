@@ -16,13 +16,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     showSlides(); // Inicia o slideshow
-});
 
-function toggleMenu() {
-    var nav = document.querySelector('nav ul');
-    nav.classList.toggle('show');
-}
-function toggleDropdown() {
-    var dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.classList.toggle('show');
-}
+    // ATIVA O MENU HAMBURGUER
+    const menuIcon = document.querySelector(".menu-icon");
+    const navMenu = document.querySelector("nav ul");
+
+    if (menuIcon && navMenu) {
+        menuIcon.addEventListener("click", function () {
+            navMenu.classList.toggle("show");
+        });
+    }
+
+    // ATIVA O DROPDOWN NO "MAIS"
+    const dropbtn = document.querySelector(".dropbtn");
+    const dropdownContent = document.querySelector(".dropdown-content");
+
+    if (dropbtn && dropdownContent) {
+        dropbtn.addEventListener("click", function (event) {
+            event.stopPropagation(); // Impede que o clique feche o menu automaticamente
+            dropdownContent.classList.toggle("show");
+        });
+
+        // Fecha o dropdown ao clicar fora
+        document.addEventListener("click", function (event) {
+            if (!dropdownContent.contains(event.target) && !dropbtn.contains(event.target)) {
+                dropdownContent.classList.remove("show");
+            }
+        });
+    }
+});
