@@ -37,10 +37,6 @@ nav {
     padding: 10px 20px;
     text-align: left;
     z-index: 1000; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease-in-out;
 }
 
 nav:hover {
@@ -117,7 +113,7 @@ nav ul li:hover .dropdown-content {
 .slideshow-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 80vh; /* Ajuste a altura conforme necessário */
     overflow: hidden;
     margin-top: 0px; 
 }
@@ -230,7 +226,7 @@ hr {
         border-radius: 10px;
     }
     #navbar.open {
-        display: flex;
+        display: flex; /* Certifique-se de que o menu está visível */
     }
 }
 
