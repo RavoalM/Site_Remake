@@ -209,9 +209,8 @@ hr {
 .menu-icon {
     display: none;
     font-size: 30px;
-    color: white;
     cursor: pointer;
-    padding: 10px;
+    color: white;
 }
 
 /* Media Queries para dispositivos móveis */
@@ -219,60 +218,22 @@ hr {
     .menu-icon {
         display: block;
     }
-
-    nav ul {
-    display: none; /* Ocultar o menu por padrão */
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    text-align: center;
+    #navbar {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 10px;
     }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        font-size: 16px;
-        padding: 15px;
-    }
-
-    nav .menu-icon {
-        display: block;
-        cursor: pointer;
-    }
-
-        nav ul.show {
-            display: flex;
-        }
-
-    .slideshow-container {
-        height: 50vh; 
-    }
-
-    .slide img {
-        object-fit: contain; 
-    }
-    
-   
-    nav ul li .dropdown-content {
-        position: static;
-        width: 100%;
-    }
-
-    nav ul li .dropdown-content a {
-        text-align: center;
-        padding: 12px;
-    }
-
-    
-    nav ul li .dropdown-content.show {
-        display: block;
+    #navbar.open {
+        display: flex;
     }
 }
+
 
 .cards-container {
     display: flex;
@@ -287,6 +248,7 @@ hr {
     height: 300px;
     perspective: 1000px;
     cursor: pointer;
+    transition: transform 0.6s ease;
 }
 
 .card-inner {
@@ -301,7 +263,8 @@ hr {
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     width: 100%;
     height: 100%;
     position: absolute;

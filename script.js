@@ -17,53 +17,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showSlides(); // Inicia o slideshow
 
-    // ATIVA O MENU HAMBURGUER
-    const menuIcon = document.querySelector(".menu-icon");
-    const navMenu = document.querySelector("nav ul");
-
-    if (menuIcon && navMenu) {
-        menuIcon.addEventListener("click", function () {
-            navMenu.classList.toggle("show");
-        });
-    }
-
-    // ATIVA O DROPDOWN NO "MAIS"
-    const dropbtn = document.querySelector(".dropbtn");
-    const dropdownContent = document.querySelector(".dropdown-content");
-
-    if (dropbtn && dropdownContent) {
-        dropbtn.addEventListener("click", function (event) {
-            event.stopPropagation(); // Impede que o clique feche o menu automaticamente
-            dropdownContent.classList.toggle("show");
-        });
-
-        // Fecha o dropdown ao clicar fora
-        document.addEventListener("click", function (event) {
-            if (!dropdownContent.contains(event.target) && !dropbtn.contains(event.target)) {
-                dropdownContent.classList.remove("show");
-            }
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Código para flip nos cartões e menu hamburguer
     const cards = document.querySelectorAll(".card");
+    const menuIcon = document.querySelector(".menu-icon");
+    const navbar = document.getElementById("navbar");
 
+    // Ação para flip nos cartões
     cards.forEach(card => {
         card.addEventListener("click", function (event) {
             // Ignora a interação se o clique for no botão "Fechar"
-            if (!event.target.classList.contains("close-btn")) {
+            if (!event.target.classList.contains('close-btn')) {
                 card.classList.toggle("flipped");
             }
         });
     });
 
-    // Fechar o cartão quando clicar no botão de fechar
-    document.querySelectorAll(".close-btn").forEach(button => {
+    const closeButtons = document.querySelectorAll(".close-btn");
+    closeButtons.forEach(button => {
         button.addEventListener("click", function (event) {
-            event.stopPropagation(); // Impede que o clique feche o cartão novamente
-            this.closest(".card").classList.remove("flipped");
+            const card = event.target.closest(".card");
+            card.classList.remove("flipped");
         });
     });
-});
 
+    // Função para alternar o menu no celular
+    menuIcon.addEventListener("click", function () {
+        navbar.classList.toggle("open");
+    });
+});
