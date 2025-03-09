@@ -3,19 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".slide");
 
     function showSlides() {
-        slides.forEach(slide => (slide.style.display = "none")); // Esconde todos os slides
+        slides.forEach((slide, index) => {
+            slide.style.display = (index === slideIndex) ? "block" : "none"; // Mostra apenas o slide atual
+        });
 
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1; // Reinicia no primeiro slide
-        }
-
-        slides[slideIndex - 1].style.display = "block"; // Mostra o slide atual
-
+        slideIndex = (slideIndex + 1) % slides.length; // Avança para o próximo slide
         setTimeout(showSlides, 3000); // Troca a cada 3 segundos
     }
 
     showSlides(); // Inicia o slideshow
+});
 
     // Código para flip nos cartões e menu hamburguer
     const cards = document.querySelectorAll(".card");
@@ -40,8 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Função para alternar o menu no celular
-    menuIcon.addEventListener("click", function () {
-        navbar.classList.toggle("open");
-    });
+   // Função para alternar o menu no celular
+menuIcon.addEventListener("click", function () {
+    navbar.classList.toggle("open"); // Alterna a classe 'open' no navbar
 });
+
+
+ 

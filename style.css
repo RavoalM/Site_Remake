@@ -62,6 +62,10 @@ nav ul li a {
     transition: background-color 0.3s, color 0.3s;
 }
 
+#navbar {
+    display: flex; /* Exibe o navbar por padrão */
+}
+
 /* Efeito de hover no menu */
 nav ul li a:hover {
     background-color:#cc0033;
@@ -212,12 +216,11 @@ hr {
 /* Media Queries para dispositivos móveis */
 @media (max-width: 768px) {
     .menu-icon {
-        display: block;
+        display: block; /* Mostra o ícone do menu em telas pequenas */
     }
     #navbar {
-        display: none;
+        display: none; /* Esconde o navbar por padrão em telas pequenas */
         flex-direction: column;
-        gap: 10px;
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
         top: 50px;
@@ -226,7 +229,7 @@ hr {
         border-radius: 10px;
     }
     #navbar.open {
-        display: flex; /* Certifique-se de que o menu está visível */
+        display: flex; /* Mostra o navbar quando aberto */
     }
 }
 
