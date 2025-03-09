@@ -68,7 +68,7 @@ nav ul li a {
 
 /* Efeito de hover no menu */
 nav ul li a:hover {
-    background-color:#cc0033;
+    background-color: #cc0033;
     color: rgb(250, 250, 250);
     border-radius: 5px;
 }
@@ -119,7 +119,6 @@ nav ul li:hover .dropdown-content {
     width: 100%;
     height: 80vh; /* Ajuste a altura conforme necessário */
     overflow: hidden;
-    margin-top: 0px; 
 }
 
 .slide {
@@ -140,18 +139,6 @@ nav ul li:hover .dropdown-content {
 /* Mostrar apenas o primeiro slide */
 .slide:first-child {
     display: block;
-}
-
-/* Keyframes para animação de slides */
-@keyframes slideEffect {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes slideMovement {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0); }
 }
 
 /* Estilização dos textos principais */
@@ -233,76 +220,85 @@ hr {
     }
 }
 
-
-.cards-container {
+.card-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .card {
-    width: 200px;
-    height: 300px;
-    perspective: 1000px;
-    cursor: pointer;
-    transition: transform 0.6s ease;
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-}
-
-.card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+    border: 2px solid #000;
+    border-radius: 8px;
+    width: 300px;
     text-align: center;
-    border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 15px;
+    background-color: #f8f8f8;
 }
 
-.card-front img {
-    width: 80%;
-    border-radius: 10px;
-    margin-bottom: 10px;
+.card img {
+    max-width: 100%;
+    border-radius: 8px px 0 0;
 }
 
-.card-back {
-    transform: rotateY(180deg);
+.card h2 {
+    font-size: 1.5em;
 }
 
-.close-btn {
+.card p {
+    font-size: 1.2em;
+}
+
+.card button {
     margin-top: 10px;
-    background-color: #cc0033;
-    color: white;
-    border: none;
     padding: 5px 10px;
-    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 1.5em;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.close-btn:hover {
-    background-color: #ff3366;
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica em cima de tudo */
+    z-index: 1000; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
 }
 
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza a janela */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura da janela */
+    max-width: 600px; /* Largura máxima */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-img {
+    width: 100%; /* Imagem ocupa toda a largura da janela modal */
+    border-radius: 10px; /* Bordas arredondadas */
+}
 
 /* Responsividade */
 @media (max-width: 600px) {
