@@ -46,7 +46,7 @@ nav:hover {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 110;
     display: flex;
 }
 
@@ -57,7 +57,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px; 
+    font-size: 25px; 
     padding: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -82,7 +82,7 @@ nav ul li.dropdown {
 nav ul li .dropbtn {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     padding: 10px;
     background-color: transparent;
     border: none;
@@ -117,8 +117,9 @@ nav ul li:hover .dropdown-content {
 .slideshow-container {
     position: relative;
     width: 100%;
-    height: 80vh; /* Ajuste a altura conforme necessário */
+    height: 100vh;
     overflow: hidden;
+    margin: 0;
 }
 
 .slide {
@@ -132,7 +133,7 @@ nav ul li:hover .dropdown-content {
 
 .slide img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover; 
 }
 
@@ -147,7 +148,8 @@ nav ul li:hover .dropdown-content {
     font-size: 3rem;
     color: rgb(255, 0, 98);
     text-align: center;
-    margin-top: 100px;
+    margin-top: 20px;
+    
 }
 
 .desc {
@@ -155,7 +157,7 @@ nav ul li:hover .dropdown-content {
     color: #ffffff;
     text-align: center;
     font-size: 1.2rem;
-    margin: 10px;
+    margin: 0px;
     opacity: 50%;
 }
 
@@ -236,8 +238,9 @@ hr {
 }
 
 .card img {
-    max-width: 100%;
-    border-radius: 8px px 0 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .card h2 {
@@ -279,6 +282,10 @@ hr {
     width: 80%; /* Largura da janela */
     max-width: 600px; /* Largura máxima */
     border-radius: 10px; /* Bordas arredondadas */
+}
+
+.modal-content h2 {
+    text-align: center;
 }
 
 .close {

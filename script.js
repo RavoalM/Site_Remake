@@ -14,46 +14,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showSlides(); // Inicia o slideshow
 
-    // Modal
-    const cards = document.querySelectorAll(".card");
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalDescription = document.getElementById("modal-description");
-    const modalImage = document.getElementById("modal-image");
-    const closeModal = document.querySelector(".close");
-
-    // Ação para abrir a janela modal
-    cards.forEach(card => {
-        card.addEventListener("click", function () {
-            const title = card.querySelector("h3").innerText;
-            const description = card.querySelector("p").innerText;
-            const imgSrc = card.querySelector("img").src; // Imagem do cartão
-
-            modalTitle.innerText = title;
-            modalDescription.innerText = description;
-            modalImage.src = imgSrc;
-
-            modal.style.display = "block"; // Mostra a janela modal
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDescription = document.getElementById("modal-description");
+        const modalImage = document.getElementById("modal-image");
+        const closeModal = document.querySelector(".close");
+    
+        // Ação para abrir a janela modal
+        document.addEventListener("DOMContentLoaded", function () {
+            const modals = document.querySelectorAll(".modal");
+            const openModalButtons = document.querySelectorAll(".open-modal");
+            const closeModalButtons = document.querySelectorAll(".close");
+        
+            // Ação para abrir a janela modal
+            openModalButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const modalId = button.getAttribute("data-modal");
+                    const modal = document.getElementById(modalId);
+                    modal.style.display = "block"; // Mostra a janela modal
+                });
+            });
+        
+            // Ação para fechar a janela modal
+            closeModalButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const modal = button.closest(".modal");
+                    modal.style.display = "none"; // Esconde a janela modal
+                });
+            });
+        
+            // Fecha a modal se o usuário clicar fora dela
+            window.addEventListener("click", function (event) {
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = "none"; // Esconde a janela modal
+                    }
+                });
+            });
         });
     });
-
-    // Ação para fechar a janela modal
-    closeModal.addEventListener("click", function () {
-        modal.style.display = "none"; // Esconde a janela modal
-    });
-
-    // Fecha a modal se o usuário clicar fora dela
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none"; // Esconde a janela modal
-        }
-    });
-
+});
     // Função para alternar o menu no celular
     const menuIcon = document.querySelector(".menu-icon");
     const navbar = document.getElementById("navbar");
-
+    
     menuIcon.addEventListener("click", function () {
-        navbar.classList.toggle("open"); // Alterna a classe 'open' no navbar
+        navbar.classList.toggle("open"); 
     });
+
+document.querySelectorAll('.card button').forEach(button => {
+    button.addEventListener('click', function() {
+        const character = this.parentElement.querySelector('h2').innerText.toLowerCase();
+        const modal = document.getElementById(`modal-${character}`);
+        modal.style.display = "block";
+    });
+});
+
+document.querySelectorAll('.close').forEach(span => {
+    span.onclick = function() {
+        this.parentElement.parentElement.style.display = "none";
+    }
 });
