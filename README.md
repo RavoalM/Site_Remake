@@ -14,4 +14,4 @@ Isso é uma tentativa de refazer um site antigo que eu usei um template, por aus
 <br> <br>
 - **Elenco de personagens**: O site contem fichas falando sobre os personagens e os apresentando
 
-![]([https://i.imgur.com/krolZ77.gif](https://pa1.aminoapps.com/8924/7ee339095b5017dd5a7b803e98acc1db22808e50r1-540-213_hq.gif))
+![](https://pa1.aminoapps.com/8924/7ee339095b5017dd5a7b803e98acc1db22808e50r1-540-213_hq.gif)
